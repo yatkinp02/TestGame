@@ -208,9 +208,11 @@ if (!is_dir('rooms')) {
         const CONFIG = {
             roomCode: "<?php echo $room_code; ?>",
             playerNumber: <?php echo $player_number; ?>,
-            playerId: "<?php echo $_SESSION['player_id']; ?>",
+            playerId: "<?php echo $_SESSION['player_id'] ?? 'player_' . uniqid(); ?>",
             apiUrl: "api.php"
         };
+        
+        console.log('Game config:', CONFIG);
     </script>
     <script src="game.js"></script>
     <script>
