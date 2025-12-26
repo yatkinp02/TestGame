@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: pong-multiplayer
+    env: php
+    buildCommand: ""
+    startCommand: php -S 0.0.0.0:$PORT
+    envVars:
+      - key: PHP_VERSION
+        value: 8.1
+    healthCheckPath: /api.php
