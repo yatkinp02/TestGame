@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Тест API</title>
+</head>
+<body>
+    <h1>Тестирование API игры</h1>
+    
+    <div>
+        <h3>Проверить комнату 1002D7:</h3>
+        <button onclick="checkRoom()">Проверить</button>
+        <div id="result1"></div>
+    </div>
+    
+    <div>
+        <h3>Создать комнату:</h3>
+        <button onclick="createRoom()">Создать</button>
+        <div id="result2"></div>
+    </div>
+    
+    <script>
+        async function checkRoom() {
+            const response = await fetch('api.php?action=check_room&room=1002D7');
+            const data = await response.json();
+            document.getElementById('result1').innerHTML = 
+                '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        }
+        
+        async function createRoom() {
+            const formData = new FormData();
+            formData.append('player_id', 'test_player_' + Date.now());
+            
+            const response = await fetch('api.php?action=create_room', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            document.getElementById('result2').innerHTML = 
+                '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        }
+        
+        // Проверяем комнату при загрузке
+        checkRoom();
+    </script>
+</body>
+</html>

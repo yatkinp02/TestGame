@@ -1,0 +1,2 @@
+{"time":"2025-12-26 09:48:45","ip":"92.63.71.38","action":"leave_game","room":"none","post":{"room":"5AEA62","player_id":"player_694e29b9454999.80141423"}}
+{"time":"2025-12-26 09:49:21","ip":"92.63.71.38","action":"check_room","room":"1002D7","post":[]}
